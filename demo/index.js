@@ -10,3 +10,5 @@ myName = myName.split(' ')
         .filter(it => it)
         .map(it => it[0].toUpperCase() + it.substr(1))
         .join(" ");
+
+    
