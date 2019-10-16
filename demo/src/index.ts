@@ -14,3 +14,4 @@ if (typeof myName === 'string') {
 
 let say:string= 'hello';
 
+console.log(say)
