@@ -5,7 +5,12 @@ function getUserName():string | number {
     return 404;
 }
 var myName = getUserName();
-myName = typeof myName === 'string' &&  myName.split(' ')
+if (typeof myName === 'string') {
+    myName = myName.split(' ')
         .filter(it => it)
         .map(it => it[0].toUpperCase() + it.substr(1))
         .join(" ");
+}
+
+let say:string= 'hello';
+
