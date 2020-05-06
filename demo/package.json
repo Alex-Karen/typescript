@@ -16,5 +16,8 @@
   "bugs": {
     "url": "https://github.com/Alex-Karen/typescript/issues"
   },
-  "homepage": "https://github.com/Alex-Karen/typescript#readme"
+  "homepage": "https://github.com/Alex-Karen/typescript#readme",
+  "devDependencies": {
+    "@types/node": "^13.13.5"
+  }
 }
