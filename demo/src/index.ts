@@ -52,3 +52,13 @@ let tu: [string, number];
 tu = ['1', 1];
 
 let data: any;
+
+type User = {
+    name: string
+    age: number
+    gender: "男" | "女"
+}
+let u: User;
+function getUsers(): number[] {
+    return [];
+}
