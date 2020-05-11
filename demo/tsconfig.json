@@ -10,6 +10,8 @@
     "removeComments": true,
     "alwaysStrict": false,
     "noImplicitUseStrict": true,
+    "moduleResolution":"Node",
+    "noEmitOnError":true
   },
   "include": ["./src"] //编译的目录
 }

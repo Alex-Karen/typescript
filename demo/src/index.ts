@@ -1,4 +1,5 @@
 import { name1 } from "./myModule";
+import { notStrictEqual } from "assert";
 
 function getUserName(): string | number {
     if (Math.random() < 0.5) {
@@ -74,7 +75,7 @@ getUsers("男");
  */
 type Deck = NormalCart[];
 // type Color = "♥" | "♠" | "♦" | "♣";
-enum Color{
+enum Color {
     heart = "♥",
     spade = "♠",
     club = "♦",
@@ -99,12 +100,12 @@ type NormalCart = {
     color: Color
     mark: Mark
 }
-function createDeck() : Deck{
+function createDeck(): Deck {
     const deck: Deck = [];
     const marks = Object.values(Mark);
     const colors = Object.values(Color);
     for (const m of marks) {
-        for(const c of colors) {
+        for (const c of colors) {
             deck.push({
                 color: c,
                 mark: m
@@ -119,7 +120,7 @@ function printDeck(deck: Deck) {
     deck.forEach((card, i) => {
         let str = card.color + card.mark;
         result += str + "\t";
-        if ((i+1) % 6 === 0) {
+        if ((i + 1) % 6 === 0) {
             result += "\n";
         }
     })
@@ -129,7 +130,7 @@ function printDeck(deck: Deck) {
 // const deck = createDeck();
 // printDeck(deck);
 
-enum GenderEum{
+enum GenderEum {
     meal = "男",
     femal = "女"
 }
@@ -146,6 +147,59 @@ p = p ^ Permission.Write;
 function hasPermission(target: Permission, per: Permission) {
     return (target & per) === per;
 }
+
+interface UserObj {
+    readonly id: string
+    name: string
+    age: number
+    sayHello: () => void
+}
+// type Condition = (n: number) => boolean
+interface Condition {
+    (n:number) : boolean
+}
+function sumInterface(numbers: number[], callBack: Condition) {
+    let s = 0;
+    numbers.forEach(n => {
+        if (callBack(n)) {
+            s += n
+        }
+    });
+    return s
+}
+const result1 = sumInterface([1, 2, 3, 5, 6], n => n % 2 !== 0);
+// console.log(result1)
+
+interface A {
+    T1: string
+}
+
+interface B extends A {
+    T2: number
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
