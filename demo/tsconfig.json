@@ -5,8 +5,11 @@
     "lib": ["es2016"], //编译库
     "outDir": "./dist", //编译结果目录
     "strict": true,
-    "esModuleInterop": true,
-    "strictNullChecks": true
+    "esModuleInterop": true, 
+    "strictNullChecks": true,
+    "removeComments": true,
+    "alwaysStrict": false,
+    "noImplicitUseStrict": true,
   },
   "include": ["./src"] //编译的目录
 }
