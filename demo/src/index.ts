@@ -73,7 +73,7 @@ getUsers("男");
  * @param
  * @param
  */
-type Deck = NormalCart[];
+type Deck = Card[];
 // type Color = "♥" | "♠" | "♦" | "♣";
 enum Color {
     heart = "♥",
@@ -96,9 +96,15 @@ enum Mark {
     twelve = "Q",
     king = "K"
 }
-type NormalCart = {
+interface Card {
+    getString() :string
+}
+interface NormalCart extends Card {
     color: Color
     mark: Mark
+}
+interface Joker extends Card{
+    type: "big" | "small"
 }
 function createDeck(): Deck {
     const deck: Deck = [];
@@ -106,10 +112,14 @@ function createDeck(): Deck {
     const colors = Object.values(Color);
     for (const m of marks) {
         for (const c of colors) {
-            deck.push({
+            var card:NormalCart = {
                 color: c,
-                mark: m
-            })
+                mark: m,
+                getString() {
+                    return this.color + this.mark
+                }
+            }
+            deck.push(card)
         }
     }
     return deck;
