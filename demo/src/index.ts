@@ -97,6 +97,8 @@ enum Mark {
     king = "K"
 }
 interface Card {
+    // mark: any;
+    // color: any;
     getString() :string
 }
 interface NormalCart extends Card {
@@ -112,28 +114,34 @@ function createDeck(): Deck {
     const colors = Object.values(Color);
     for (const m of marks) {
         for (const c of colors) {
-            var card:NormalCart = {
-                color: c,
-                mark: m,
-                getString() {
-                    return this.color + this.mark
-                }
-            }
-            deck.push(card)
+            // deck.push({
+            //     color: c,
+            //     mark: m,
+            //     getString() {
+            //         return this.color + this.mark;
+            //     }
+            // } as Card)
         }
     }
+    let joker: Joker = {
+        type: "small",
+        getString() {
+            return "jo"
+        }
+    }
+    deck.push(joker)
     return deck;
 }
 
 function printDeck(deck: Deck) {
     let result = "\n";
-    deck.forEach((card, i) => {
-        let str = card.color + card.mark;
-        result += str + "\t";
-        if ((i + 1) % 6 === 0) {
-            result += "\n";
-        }
-    })
+    // deck.forEach((card, i) => {
+    //     let str = card.color + card.mark;
+    //     result += str + "\t";
+    //     if ((i + 1) % 6 === 0) {
+    //         result += "\n";
+    //     }
+    // })
     console.log(result);
 }
 
